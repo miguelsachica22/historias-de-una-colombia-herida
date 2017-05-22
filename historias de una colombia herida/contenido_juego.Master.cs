@@ -11,13 +11,13 @@ namespace historias_de_una_colombia_herida
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
-                string si = Session["sesionnick_name"].ToString();
-            }
-            catch {
-                Response.Redirect("loggin_registro.aspx");
-            }
+            //try
+            //{
+            //    string si = Session["sesionnick_name"].ToString();
+            //}
+            //catch {
+            //    Response.Redirect("loggin_registro.aspx");
+            //}
         }
     }
 }

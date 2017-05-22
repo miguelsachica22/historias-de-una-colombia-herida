@@ -106,73 +106,173 @@
 
     <table class="nav-justified" style="height: 444px">
         <tr>
-            <td style="width: 360px; height: 374px;">
-                <table border="0" class="nav-justified" style="width: 96%; height: 279px; margin-bottom: 0px;">
-                    <tr>
-                        <td class="text-center" colspan="2"><strong><em>
-                            <asp:Label ID="Label8" runat="server" style="color: #339933; font-size: medium" Text="Datos Personales"></asp:Label>
-                            </em></strong></td>
-                    </tr>
-                    <tr>
-                        <td class="text-left" style="width: 182px"><strong><em>
-                            <asp:Label ID="Label9" runat="server" style="color: #339933" Text="Nombres"></asp:Label>
-                            </em></strong></td>
-                        <td class="text-left" style="width: 253px">
-                            <asp:TextBox ID="txt_nombre" runat="server" Enabled="False" Height="25px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left" style="width: 182px"><strong>
-                            <asp:Label ID="Label10" runat="server" style="color: #339933" Text="Apellidos"></asp:Label>
-                            </strong></td>
-                        <td class="text-left" style="width: 253px">
-                            <asp:TextBox ID="txt_apellido" runat="server" Enabled="False" Height="25px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left" style="width: 182px"><strong>
-                            <asp:Label ID="Label11" runat="server" style="color: #339933" Text="Sexo"></asp:Label>
-                            </strong></td>
-                        <td class="text-left" style="width: 253px">
-                            <asp:TextBox ID="txt_sexo" runat="server" Enabled="False" Height="25px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left" style="width: 182px"><strong><em>
-                            <asp:Label ID="Label12" runat="server" style="color: #339933" Text="E-mail"></asp:Label>
-                            </em></strong></td>
-                        <td class="text-left" style="width: 253px">
-                            <asp:TextBox ID="txt_correo" runat="server" Enabled="False" Height="25px"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left" style="width: 182px"><strong>
-                            <asp:Label ID="Label13" runat="server" style="color: #339933" Text="Fecha de nacimiento"></asp:Label>
-                            </strong></td>
-                        <td class="text-left" style="width: 253px">
-                            <asp:TextBox ID="txt_fecha" runat="server" Enabled="False" Height="25px" TextMode="Date"></asp:TextBox>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="text-left" style="width: 182px; height: 20px;"><strong>
-                            <asp:Label ID="Label14" runat="server" style="color: #339933" Text="Contraseña"></asp:Label>
-                            </strong></td>
-                        <td class="text-left" style="height: 20px; width: 253px;">
-                            <asp:TextBox ID="txt_contra" runat="server" Enabled="False" Height="25px" TextMode="Password"></asp:TextBox>
-                        </td>
-                    </tr>
-                </table>
+            <td style="width: 515px; height: 374px;">
+                <asp:FormView ID="FormView1" runat="server" BorderColor="#339933" BorderWidth="2px" DataKeyNames="identificacion" DataSourceID="SqlDataSource1" DefaultMode="Edit" Height="374px" Width="430px">
+                    <EditItemTemplate>
+                        &nbsp;<strong><em><asp:Label ID="Label8" runat="server" style="color: #339933; font-size: medium" Text="Datos Personales"></asp:Label>
+                        <br />
+                        </em></strong>&nbsp;<table style="width: 100%; height: 225px">
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong><em>
+                                    <asp:Label ID="Label15" runat="server" style="color: #339933" Text="Identificacion"></asp:Label>
+                                    </em></strong></td>
+                                <td class="text-left">
+                                    <asp:Label ID="identificacionLabel1" runat="server" style="color: #FF0000; font-weight: 700" Text='<%# Eval("identificacion") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left">&nbsp;</td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="nick_nameTextBox" runat="server" Enabled="False" Text='<%# Bind("nick_name") %>' Visible="False" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong><em>
+                                    <asp:Label ID="Label13" runat="server" style="color: #339933" Text="Fecha nacimiento"></asp:Label>
+                                    </em></strong></td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="fecha_nacimientoTextBox" runat="server" Enabled="False" Text='<%# Bind("fecha_nacimiento") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong><em>
+                                    <asp:Label ID="Label9" runat="server" style="color: #339933" Text="Nombres"></asp:Label>
+                                    </em></strong></td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="nombresTextBox" runat="server" Text='<%# Bind("nombres") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong>
+                                    <asp:Label ID="Label10" runat="server" style="color: #339933" Text="Apellidos"></asp:Label>
+                                    </strong></td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="apellidosTextBox" runat="server" Text='<%# Bind("apellidos") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong>
+                                    <asp:Label ID="Label11" runat="server" style="color: #339933" Text="Sexo"></asp:Label>
+                                    </strong></td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="sexoTextBox" runat="server" Text='<%# Bind("sexo") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong><em>
+                                    <asp:Label ID="Label12" runat="server" style="color: #339933" Text="E-mail"></asp:Label>
+                                    </em></strong></td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="correoTextBox" runat="server" Text='<%# Bind("correo") %>' />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width: 35px">&nbsp;</td>
+                                <td class="text-left"><strong>
+                                    <asp:Label ID="Label14" runat="server" style="color: #339933" Text="Contraseña"></asp:Label>
+                                    </strong></td>
+                                <td class="text-left">
+                                    <asp:TextBox ID="contraTextBox" runat="server" Text='<%# Bind("contra") %>' />
+                                </td>
+                            </tr>
+                        </table>
+                        <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Enabled="False" Text="Actualizar" Visible="False" />
+                        &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Enabled="False" Text="Cancelar" Visible="False" />
+                        <br />
+                        <asp:ImageButton ID="ImageButton3" runat="server" CommandName="update" Height="58px" ImageUrl="~/images/boton_actualizar.PNG" Width="96px" />
+                        <asp:ImageButton ID="ImageButton4" runat="server" CommandName="Cancel" Height="57px" ImageUrl="~/images/boton_cancelar.PNG" Width="96px" />
+                        &nbsp;
+                    </EditItemTemplate>
+                    <InsertItemTemplate>
+                        identificacion:
+                        <asp:TextBox ID="identificacionTextBox" runat="server" Text='<%# Bind("identificacion") %>' />
+                        <br />
+                        nick_name:
+                        <asp:TextBox ID="nick_nameTextBox" runat="server" Text='<%# Bind("nick_name") %>' />
+                        <br />
+                        nombres:
+                        <asp:TextBox ID="nombresTextBox" runat="server" Text='<%# Bind("nombres") %>' />
+                        <br />
+                        apellidos:
+                        <asp:TextBox ID="apellidosTextBox" runat="server" Text='<%# Bind("apellidos") %>' />
+                        <br />
+                        sexo:
+                        <asp:TextBox ID="sexoTextBox" runat="server" Text='<%# Bind("sexo") %>' />
+                        <br />
+                        correo:
+                        <asp:TextBox ID="correoTextBox" runat="server" Text='<%# Bind("correo") %>' />
+                        <br />
+                        fecha_nacimiento:
+                        <asp:TextBox ID="fecha_nacimientoTextBox" runat="server" Text='<%# Bind("fecha_nacimiento") %>' />
+                        <br />
+                        contra:
+                        <asp:TextBox ID="contraTextBox" runat="server" Text='<%# Bind("contra") %>' />
+                        <br />
+                        <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+                        &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                    </InsertItemTemplate>
+                    <ItemTemplate>
+                        identificacion:
+                        <asp:Label ID="identificacionLabel" runat="server" Text='<%# Eval("identificacion") %>' />
+                        <br />
+                        nick_name:
+                        <asp:Label ID="nick_nameLabel" runat="server" Text='<%# Bind("nick_name") %>' />
+                        <br />
+                        nombres:
+                        <asp:Label ID="nombresLabel" runat="server" Text='<%# Bind("nombres") %>' />
+                        <br />
+                        apellidos:
+                        <asp:Label ID="apellidosLabel" runat="server" Text='<%# Bind("apellidos") %>' />
+                        <br />
+                        sexo:
+                        <asp:Label ID="sexoLabel" runat="server" Text='<%# Bind("sexo") %>' />
+                        <br />
+                        correo:
+                        <asp:Label ID="correoLabel" runat="server" Text='<%# Bind("correo") %>' />
+                        <br />
+                        fecha_nacimiento:
+                        <asp:Label ID="fecha_nacimientoLabel" runat="server" Text='<%# Bind("fecha_nacimiento") %>' />
+                        <br />
+                        contra:
+                        <asp:Label ID="contraLabel" runat="server" Text='<%# Bind("contra") %>' />
+                        <br />
+                        <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar" />
+                        &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" />
+                        &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+                    </ItemTemplate>
+                </asp:FormView>
             </td>
-            <td style="width: 574px; height: 374px;"></td>
+            <td style="width: 503px; height: 374px;">
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:memorias_colombiaConnectionString2 %>" SelectCommand="SELECT * FROM [usuario] where nick_name = @nick_name" UpdateCommand="UPDATE [usuario] SET [nombres] = @nombres, [apellidos] = @apellidos, [sexo] = @sexo, [correo] = @correo,  [contra] = @contra WHERE [identificacion] = @identificacion">
+                    <SelectParameters>
+                        <asp:SessionParameter Name="nick_name" SessionField="sesionnick_name" />
+                    </SelectParameters>
+                    <UpdateParameters>
+                        <asp:Parameter Name="nombres" Type="String" />
+                        <asp:Parameter Name="apellidos" Type="String" />
+                        <asp:Parameter Name="sexo" Type="String" />
+                        <asp:Parameter Name="correo" Type="String" />
+                        <asp:Parameter Name="contra" Type="String" />
+                        <asp:Parameter Name="identificacion" Type="Int64" />
+                    </UpdateParameters>
+                </asp:SqlDataSource>
+            </td>
             <td style="height: 374px"><strong>
                 <br />
                 <br />
                 <br />
-                <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/images/boton_1.PNG" />
+                <asp:ImageButton ID="botn_ranking" runat="server" ImageUrl="~/images/boton_1.PNG" Height="77px" Width="150px" OnClick="botn_ranking_Click" />
                 <br />
                 </strong>
                 <br />
-                <asp:ImageButton ID="ImageButton2" runat="server" ImageUrl="~/images/boton_2.PNG" />
+                <asp:ImageButton ID="botn_resultados" runat="server" ImageUrl="~/images/boton_2.PNG" Height="77px" Width="149px" OnClick="botn_resultados_Click" />
                 <br />
                 <br />
                 <br />
@@ -181,11 +281,11 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 360px">
-                <asp:ImageButton ID="boton_editar" runat="server" ImageUrl="~/images/boton_editar.PNG" OnClick="boton_editar_Click" />
-                <asp:ImageButton ID="boton_guardar" runat="server" ImageUrl="~/images/boton_guardar.PNG" Visible="False" OnClick="boton_guardar_Click" />
+            <td style="width: 515px">
+                <br />
+                <br />
             </td>
-            <td style="width: 574px">&nbsp;</td>
+            <td style="width: 503px">&nbsp;</td>
             <td>&nbsp;</td>
         </tr>
     </table>

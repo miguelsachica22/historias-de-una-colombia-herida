@@ -33,18 +33,18 @@ public class Clase_usuario
             this.contra = usucontra;
         }
 
-        //registrar usuario
+        ////registrar usuario
 
-        public static int  registrar_usuario( Clase_usuario usu)
+        //public static int  registrar_usuario( Clase_usuario usu)
 
-        {
-            int retorno = 0;
-        MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO usuario(identificacion, nick_name, nombres, apellidos, sexo, correo, fecha_nacimiento,contra) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
-               usu.identificacion,usu.nick_name, usu.nombres, usu.apellidos,usu.sexo,usu.correo,usu.fecha_nacimiento,usu.contra), clase_conexion.ObtenerConexion());
-            retorno = comando.ExecuteNonQuery();
-            return retorno;
+        //{
+        //    int retorno = 0;
+        //MySqlCommand comando = new MySqlCommand(string.Format("INSERT INTO usuario(identificacion, nick_name, nombres, apellidos, sexo, correo, fecha_nacimiento,contra) VALUES ('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}')",
+        //       usu.identificacion,usu.nick_name, usu.nombres, usu.apellidos,usu.sexo,usu.correo,usu.fecha_nacimiento,usu.contra), clase_conexion.ObtenerConexion());
+        //    retorno = comando.ExecuteNonQuery();
+        //    return retorno;
 
-        }
+        //}
 
 
         //login
@@ -52,11 +52,10 @@ public class Clase_usuario
         public static Clase_usuario login (string lnick, string lpass)
         {
             Clase_usuario Iusuario = new Clase_usuario();
-        MySqlCommand comando = new MySqlCommand(string.Format("select * from usuario where nick_name = '{0}'and contra= '{1}'",
-
+            OleDbCommand comando = new OleDbCommand(string.Format("SELECT * FROM   usuario WHERE nick_name = '{0}'and contra= '{1}'",
                 lnick, lpass), clase_conexion.ObtenerConexion());
 
-        MySqlDataReader reader = comando.ExecuteReader();
+    OleDbDataReader     reader = comando.ExecuteReader();
             
 
             while (reader.Read())
@@ -76,6 +75,47 @@ public class Clase_usuario
 
 
         }
+    }
+    // actualziar datos personales
+    //public static int actualizar_datos_personales(Clase_usuario actu_usuario)
+    //{
+    //    int retorno = 0;
 
-    } 
+    //    MySqlCommand comando = new MySqlCommand(string.Format("UPDATE usuario SET nombres='{0}', apellidos='{1}', sexo='{2}', correo='{3}', contra='{4}' WHERE identificacion = {5} ",
+    //        actu_usuario.nombres, actu_usuario.apellidos, actu_usuario.sexo, actu_usuario.correo,  actu_usuario.contra, actu_usuario.identificacion), clase_conexion.ObtenerConexion());
+    //    retorno = comando.ExecuteNonQuery();
+    //    return retorno;
+
+    //}
+
+    //// buscar usuario 
+
+    //public static Clase_usuario buscar_usuario(long datos_usuario)
+    //{
+
+    //    Clase_usuario datos = new Clase_usuario();
+
+    //    MySqlCommand comando = new MySqlCommand(string.Format("select * from usuario where identificacion = '{0}'",
+
+    //        datos_usuario), clase_conexion.ObtenerConexion());
+
+    //    MySqlDataReader reader = comando.ExecuteReader();
+
+    //    while (reader.Read())
+    //    {
+    //        datos.identificacion = reader.GetInt64(0);
+    //        datos.nick_name = reader.GetString(1);
+    //        datos.nombres = reader.GetString(2);
+    //        datos.apellidos = reader.GetString(3);
+    //        datos.sexo = reader.GetString(4);
+    //        datos.correo = reader.GetString(5);
+    //        datos.fecha_nacimiento = reader.GetString(6);
+    //        datos.contra = reader.GetString(7);
+
+    //    }
+    //    return datos;
+    //}
+
+
+    //} 
 //}

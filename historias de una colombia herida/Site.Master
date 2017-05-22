@@ -64,6 +64,17 @@
             margin-right: -15px;
             height: 558px;
         }
+        .auto-style6 {
+            position: relative;
+            min-height: 1px;
+            float: left;
+            width: 50%;
+            left: 0px;
+            top: 0px;
+            height: 228px;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
         </style>
 </head>
 <body>
@@ -103,7 +114,7 @@
         <div class="container templatemo_wrapper">
             <!-- home start -->
             <div class="row">
-                <div class="col-sm-6">
+                <div class="auto-style6">
                     <div class="templatemo_title"><span>Memorias de 
                         <br />
                         <br />
@@ -143,6 +154,8 @@
             <div class="row">
                 <div class="auto-style3">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder3" runat="server">
+                
+                                      
                     </asp:ContentPlaceHolder>
                 </div>
                 <!--<div class="col-md-6">

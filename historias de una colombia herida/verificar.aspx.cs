@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace historias_de_una_colombia_herida
 {
-    public partial class About : Page
+    public partial class verificar : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
