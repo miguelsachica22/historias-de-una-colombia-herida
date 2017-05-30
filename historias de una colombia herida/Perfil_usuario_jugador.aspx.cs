@@ -13,46 +13,49 @@ namespace historias_de_una_colombia_herida
         {
             try
             {
-            //    //string nombre = Session["sesionnombre"].ToString();
-            //    //string identificacion = Session["sesionidentificacion"].ToString();
-            //    ////string apellido = Session["sesionapellidos"].ToString();
-            //    ////string sexo = Session["sesionsexo"].ToString();
-            //    ////string contra = Session["sesionpass"].ToString();
-            //    ////string correo = Session["sesioncorreo"].ToString();
-            //    ////string fecha = Session["sesionfechanacimiento"].ToString();
+
                 string nick = Session["sesionnick_name"].ToString();
-            //    ////txt_nombre.Text = nombre;
-            //    ////txt_apellido.Text = apellido;
-            //    ////txt_contra.Text = contra;
-            //    ////txt_correo.Text = correo;
-            //    ////txt_fecha.Text = fecha;
-            //    ////txt_sexo.Text = sexo;
-            lbl_nick_name.Text = nick;
-            //    //txt_identificacion.Text = identificacion;
+
+                lbl_nick_name.Text = nick;
+
             }
             catch
             {
+                //ID="FormView2"
                 //Response.Redirect("loggin_registro.aspx");
             }
 
-            //try {
-            //    long id = long.Parse(txt_identificacion.Text);
+          
+            //try
+            //{
+         //if (FormView2.DataItem == "0")
+            //    {
+            //        lbl_rango.Text = "Ignorante";
+            //    }
+            //    else if (FormView2.SelectedValue == "5" || FormView2.SelectedValue == "10" || FormView2.SelectedValue == "15" || FormView2.SelectedValue == "20")
+            //    {
+            //        lbl_rango.Text = "Novato";
+            //    }
+            //    else if (FormView2.SelectedValue == "25" || FormView2.SelectedValue == "30" || FormView2.SelectedValue == "35" || FormView2.SelectedValue == "40" || FormView2.SelectedValue == "45" || FormView2.SelectedValue == "50" || FormView2.SelectedValue == "55" || FormView2.SelectedValue == "60" || FormView2.SelectedValue == "65" || FormView2.SelectedValue == "70")
+            //    {
+            //        lbl_rango.Text = "Aprendiz";
+            //    }
+            //    else if (FormView2.SelectedValue == "75" || FormView2.SelectedValue == "80" || FormView2.SelectedValue == "85" || FormView2.SelectedValue == "90" || FormView2.SelectedValue == "95" || FormView2.SelectedValue == "100" || FormView2.SelectedValue == "105" || FormView2.SelectedValue == "110" || FormView2.SelectedValue == "115" || FormView2.SelectedValue == "120")
+            //    {
+            //        lbl_rango.Text = "veterano";
+            //    }
+            //    else if (FormView2.SelectedValue == "125" || FormView2.SelectedValue == "130")
+            //    {
+            //        lbl_rango.Text = "Experto";
+            //    }
 
-            //    Clase_usuario ide = Clase_usuario.buscar_usuario(id);
-
-            //    txt_nombre.Text = ide.nombres.ToString();
-            //    txt_apellido.Text = ide.apellidos.ToString();
-            //    txt_correo.Text = ide.correo.ToString();
-            //    txt_sexo.Text = ide.sexo.ToString();
-            //    txt_fecha.Text = ide.fecha_nacimiento.ToString();
-            //    txt_contra.Text = ide.contra.ToString();
-
-            //} catch {
-
-
-            //    lbl_info.Text = "usuario no encontrado";
             //}
 
+            //catch
+            //{
+            //    lbl_rango.Text = "error";
+
+            //}
         }
 
  
@@ -66,6 +69,13 @@ namespace historias_de_una_colombia_herida
         {
             Response.Redirect("Resultados_quiz.aspx");
         }
+
+        protected void ListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
 
       
 

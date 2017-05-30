@@ -33,7 +33,7 @@
             width: 97%;
             left: 0px;
             top: 5px;
-            height: 567px;
+            height: 815px;
             padding-left: 15px;
             padding-right: 15px;
         }
@@ -93,8 +93,8 @@
                     <div id="top-menu">
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a class="menu " href="#templatemo_service"><span>Registrarse</span></a></li>
-                                <li><a class="menu " href="#templatemo_packages"><span>Inicio Sesion</span></a></li>
+                                <%--<li><a class="menu " href="#templatemo_service"><span>Registrarse</span></a></li>
+                                <li><a class="menu " href="#templatemo_packages"><span>Inicio Sesion</span></a></li>--%>
                                   
 
                             </ul>
@@ -169,6 +169,7 @@
                     <br />
                     <br />
                     <br />
+                    <br />
                 <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     <p class="auto-style1">
                         <br />
@@ -183,9 +184,6 @@
         
             <div class="row">
                 <div class="col-md-6">
-                    <div class="templatemo_separater">
-                        <span class="page">2</span>
-                    </div>
 
 
 
@@ -211,11 +209,6 @@
                     <br />
                     <br />
                     <div class="row">
-               <div class="col-md-6">
-                    <div class="templatemo_separater">
-                        <span class="page">3</span>
-                    </div>
-                </div>
             </div>
                 </div>
             </div>

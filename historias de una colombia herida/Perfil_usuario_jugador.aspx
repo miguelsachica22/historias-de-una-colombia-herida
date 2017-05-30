@@ -3,6 +3,11 @@
     <%--<form id="form1" runat="server" style="height: 789px">--%>
     <asp:Panel ID="Panel1" runat="server" Height="403px">
         <br />
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:memorias_colombiaConnectionString2 %>" SelectCommand="SELECT total_puntaje FROM usuario WHERE (nick_name = @nick_name)">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="lbl_nick_name" Name="nick_name" PropertyName="Text" />
+            </SelectParameters>
+        </asp:SqlDataSource>
         <br />
         <table class="nav-justified">
             <tr>
@@ -10,40 +15,23 @@
                 <td>
                     <table align="center" border="2" class="nav-justified" style="height: 140px; width: 97%">
                         <tr>
-                            <td class="modal-sm" rowspan="5" style="width: 344px">
-                                <table class="nav-justified" style="height: 210px; width: 89%" border="2">
-                                    <tr>
-                                        <td style="height: 192px; background-color: #FFFFFF;">
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                        </td>
-                                    </tr>
-                                </table>
-                                <asp:Panel ID="Panel3" runat="server" Height="45px">
-                                    <div class="text-left" style="height: 38px">
-                                        <strong>
-                                        <asp:Button ID="btn_cambiar_foto" runat="server" CssClass="currentCrossLink" Height="35px" Text="Cambiar Foto" Width="113px" />
-                                        </strong>
-                                    </div>
-                                </asp:Panel>
+                            <td class="modal-sm" rowspan="4" style="width: 344px">
+                                <asp:ImageMap ID="ImageMap1" runat="server" Height="300px" ImageUrl="~/images/mapa.PNG" Width="293px">
+                                </asp:ImageMap>
                             </td>
                             <td colspan="2" style="color: #009933; height: 25px"><strong><em>
                                 <asp:Label ID="Label1" runat="server" style="color: #009933; font-size: medium" Text="Perfil Jugador"></asp:Label>
                                 </em></strong></td>
                         </tr>
                         <tr>
-                            <td style="height: 26px; color: #009933; width: 219px"><strong>
+                            <td style="height: 27px; color: #009933; width: 219px"><strong>
                                 <br />
                                 <asp:Label ID="Label2" runat="server" style="color: #009933" Text="Nick Name"></asp:Label>
                                 &nbsp;
                                 <br />
                                 &nbsp;&nbsp;&nbsp; </strong></td>
-                            <td class="text-justify" style="height: 26px; color: #CCCCCC"><strong><em>
+                            <td class="text-justify" style="height: 27px; color: #CCCCCC"><strong><em>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <asp:Label ID="lbl_nick_name" runat="server" style="color: #CCCCCC" Text="Nick Name"></asp:Label>
                                 </em></strong></td>
                         </tr>
@@ -52,9 +40,38 @@
                                 <br />
                                 <asp:Label ID="Label3" runat="server" style="color: #009933" Text="Total Puntos"></asp:Label>
                                 &nbsp;<br /> &nbsp;&nbsp;&nbsp;&nbsp; </strong></td>
-                            <td class="text-justify" style="color: #CCCCCC"><strong><em>
-                                <asp:Label ID="Label5" runat="server" style="color: #CCCCCC" Text="Total Puntos"></asp:Label>
-                                </em></strong></td>
+                            <td class="text-left" style="color: #CCCCCC">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <td style="width: 80px"><strong><em>
+                                            <asp:FormView ID="FormView2" runat="server" DataSourceID="SqlDataSource2" Height="16px" Width="136px">
+                                                <EditItemTemplate>
+                                                    total_puntaje:
+                                                    <asp:TextBox ID="total_puntajeTextBox" runat="server" Text='<%# Bind("total_puntaje") %>' />
+                                                    <br />
+                                                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+                                                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                                                </EditItemTemplate>
+                                                <InsertItemTemplate>
+                                                    total_puntaje:
+                                                    <asp:TextBox ID="total_puntajeTextBox" runat="server" Text='<%# Bind("total_puntaje") %>' />
+                                                    <br />
+                                                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+                                                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                                                </InsertItemTemplate>
+                                                <ItemTemplate>
+                                                    Total Puntos:
+                                                    <asp:Label ID="total_puntajeLabel" runat="server" Text='<%# Bind("total_puntaje") %>' />
+                                                    <br />
+                                                </ItemTemplate>
+                                            </asp:FormView>
+                                            </em></strong></td>
+                                        <td>
+                                            <asp:Label ID="Label16" runat="server" Text="Label"></asp:Label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
                         </tr>
                         <tr>
                             <td style="color: #009933; width: 219px"><strong>
@@ -63,17 +80,8 @@
                                 <br />
                                 &nbsp;</strong></td>
                             <td class="text-justify" style="color: #CCCCCC"><strong><em>
-                                <asp:Label ID="Label6" runat="server" style="color: #CCCCCC" Text="Rango"></asp:Label>
-                                </em></strong></td>
-                        </tr>
-                        <tr>
-                            <td style="color: #009933; width: 219px"><strong><em>
-                                <br />
-                                Puesto </em>Rankig&nbsp;
-                                <br />
-                                &nbsp;&nbsp;&nbsp; </strong></td>
-                            <td class="text-justify" style="color: #CCCCCC"><strong><em>
-                                <asp:Label ID="Label7" runat="server" style="color: #CCCCCC" Text="Puesto Rankig"></asp:Label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <asp:Label ID="lbl_rango" runat="server" style="color: #CCCCCC" Text="Rango"></asp:Label>
                                 </em></strong></td>
                         </tr>
                     </table>
